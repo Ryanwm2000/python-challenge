@@ -2,7 +2,7 @@ import os
 import csv
 
 numonths = 0
-totalchange = 0
+tc = 0
 maxinc = 0
 maxincdate = ""
 maxdec = 0
@@ -34,14 +34,14 @@ with open(csvpath, newline='') as csvfile:
 
         previous = current
         numonths += 1
-        totalchange += float(row[1])
+        tc += float(row[1])
 
 avgchange = avgchange / (numonths-1)
 
 results = []
 results.append("Financial Analysis\n----------------------------")
 results.append(f"Total Months: {numonths}")
-results.append(f"Total: ${round(totalchange)}")
+results.append(f"Total: ${round(tc)}")
 results.append(f"Average Change: ${round(avgchange,2)}")
 results.append(f"Greatest Increase in Profits: {maxincdate} (${round(maxinc)})")
 results.append(f"Greatest Decrease in Profits: {maxdecdate} (${round(maxdec)})")
