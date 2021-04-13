@@ -17,8 +17,8 @@ with open(csvpath, newline='') as csvfile:
             votesPerCandidates.append(1)
         else:
             try:
-                icandidate = candidates.index(row[2])
-                votesPerCandidates[icandidate] += 1
+                ican = candidates.index(row[2])
+                votesPerCandidates[ican] += 1
             except:
                 candidates.append(row[2])
                 votesPerCandidates.append(1)
