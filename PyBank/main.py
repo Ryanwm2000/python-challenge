@@ -6,7 +6,7 @@ tc = 0
 greatestincrease = 0
 greatestincreasedate = ""
 greatestdecrease = 0
-maxdeccdate = ""
+greatestdecreasedate = ""
 previous = 0.0
 avgchange = 0
     
@@ -21,7 +21,7 @@ with open(csvpath, newline='') as csvfile:
             greatestincrease = 0.0
             greatestdecrease = 0.0
             greatestincreasedate = row[0]
-            maxdecdate = row[0]
+            greatestdecreasedate = row[0]
         else:
             answer = current - previous
             avgchange += answer
@@ -30,7 +30,7 @@ with open(csvpath, newline='') as csvfile:
                 greatestincreasedate = row[0]
             elif answer < greatestdecrease:
                 greatestdecrease = answer
-                maxdecdate = row[0]
+                greatestdecreasedate = row[0]
 
         previous = current
         numonths += 1
@@ -44,7 +44,7 @@ results.append(f"Total Months: {numonths}")
 results.append(f"Total: ${round(tc)}")
 results.append(f"Average Change: ${round(avgchange,2)}")
 results.append(f"Greatest Increase in Profits: {greatestincreasedate} (${round(greatestincrease)})")
-results.append(f"Greatest Decrease in Profits: {maxdecdate} (${round(greatestdecrease)})")
+results.append(f"Greatest Decrease in Profits: {greatestdecreasedate} (${round(greatestdecrease)})")
 
 filename = 'Results.txt'
 with open(filename, 'w') as file:
