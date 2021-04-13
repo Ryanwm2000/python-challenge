@@ -29,12 +29,12 @@ results.append(f"Total Votes: {total_votes}\n-------------------------")
 
 winner = candidates[0]
 maxvotes = votesPerCandidate[0]
-for i in range(len(candidates)):
-    if votesPerCandidate[i] > maxvotes:
-        winner = candidates[i]
-        maxvotes = votesPerCandidate[i]
-    percent = 100 * votesPerCandidate[i] / total_votes
-    results.append(f"{candidates[i]}: {round(percent,3)} % ({votesPerCandidate[i]})")
+for x in range(len(candidates)):
+    if votesPerCandidate[x] > maxvotes:
+        winner = candidates[x]
+        maxvotes = votesPerCandidate[x]
+    percent = 100 * votesPerCandidate[x] / total_votes
+    results.append(f"{candidates[x]}: {round(percent,3)} % ({votesPerCandidate[x]})")
 
 results.append(f"-------------------------\nWinner: {winner}\n-------------------------")
 
