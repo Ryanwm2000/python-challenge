@@ -23,13 +23,13 @@ with open(csvpath, newline='') as csvfile:
             maxincdate = row[0]
             maxdecdate = row[0]
         else:
-            delta = current - previous
-            avgchange += delta
-            if delta > maxinc:
-                maxinc = delta
+            answer = current - previous
+            avgchange += answer
+            if answer > maxinc:
+                maxinc = answer
                 maxincdate = row[0]
-            elif delta < maxdec:
-                maxdec = delta
+            elif answer < maxdec:
+                maxdec = answer
                 maxdecdate = row[0]
 
         previous = current
