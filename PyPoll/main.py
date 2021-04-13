@@ -1,7 +1,7 @@
 import os
 import csv
 
-totalvotes = 0
+total_votes = 0
 candidates = []
 votesPerCandidates = []
 
