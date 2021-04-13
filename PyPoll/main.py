@@ -11,8 +11,8 @@ with open(csvpath, newline='') as csvfile:
     next(csvreader,None) 
 
     for row in csvreader:
-        totalvotes += 1
-        if totalvotes == 1:
+        total_votes += 1
+        if total_votes == 1:
             candidates.append(row[2])
             votesPerCandidates.append(1)
         else:
@@ -25,7 +25,7 @@ with open(csvpath, newline='') as csvfile:
 
 results = []
 results.append("Election Results\n-------------------------")
-results.append(f"Total Votes: {totalvotes}\n-------------------------")
+results.append(f"Total Votes: {total_votes}\n-------------------------")
 
 winner = candidates[0]
 maxvotes = votesPerCandidates[0]
@@ -33,7 +33,7 @@ for i in range(len(candidates)):
     if votesPerCandidates[i] > maxvotes:
         winner = candidates[i]
         maxvotes = votesPerCandidates[i]
-    percent = 100 * votesPerCandidates[i] / totalvotes
+    percent = 100 * votesPerCandidates[i] / total_votes
     results.append(f"{candidates[i]}: {round(percent,3)} % ({votesPerCandidates[i]})")
 
 results.append(f"-------------------------\nWinner: {winner}\n-------------------------")
