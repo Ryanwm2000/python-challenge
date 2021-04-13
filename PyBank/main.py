@@ -1,7 +1,7 @@
 import os
 import csv
 
-nmonths = 0
+numonths = 0
 totalchange = 0
 maxinc = 0
 maxincdate = ""
@@ -17,7 +17,7 @@ with open(csvpath, newline='') as csvfile:
 
     for row in csvreader:
         current = float(row[1])
-        if nmonths == 0:
+        if numonths == 0:
             maxinc = 0.0
             maxdec = 0.0
             maxincdate = row[0]
@@ -33,14 +33,14 @@ with open(csvpath, newline='') as csvfile:
                 maxdecdate = row[0]
 
         previous = current
-        nmonths += 1
+        numonths += 1
         totalchange += float(row[1])
 
-avgchange = avgchange / (nmonths-1)
+avgchange = avgchange / (numonths-1)
 
 results = []
 results.append("Financial Analysis\n----------------------------")
-results.append(f"Total Months: {nmonths}")
+results.append(f"Total Months: {numonths}")
 results.append(f"Total: ${round(totalchange)}")
 results.append(f"Average Change: ${round(avgchange,2)}")
 results.append(f"Greatest Increase in Profits: {maxincdate} (${round(maxinc)})")
